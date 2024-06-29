@@ -1,0 +1,1 @@
+// this question is solved in qn 17.cpp as this question is continuation of qn 17.cpp
