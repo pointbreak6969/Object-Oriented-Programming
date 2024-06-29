@@ -1,4 +1,6 @@
-// create a base class student use the class to store the name, dob, roll no, fee and include members functions getData(), discount(),  derive two classes pg and ug from student make display result as virtual function and redefine this function in the derived class to suit the requirement
+// Create a base class student. Use the class to store the name, dob, rollno and includes member
+// functions getdata(), discount(). Derive two classes PG and UG from student. Make disp_result()
+// as virtual function and redefine this function in the derived class to suit the requirement.
 
 #include<iostream>
 using namespace std;
