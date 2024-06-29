@@ -12,7 +12,7 @@ void getData(int l, int b){
 length = l;
 breadth = b;
 }
-int area(){
+int calculateArea(){
 return length * breadth;
 }
 };
@@ -20,6 +20,6 @@ return length * breadth;
 int main(){
 Rectangle r;
 r.getData(10, 5);
-cout << "Area of rectangle is: " << r.area() << endl;
+cout << "Area of rectangle is: " << r.calculateArea() << endl;
 return 0;
 }
