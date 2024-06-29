@@ -32,11 +32,10 @@ int main()
     int numEmployees;
     cout << "Enter the number of employees: ";
     cin >> numEmployees;
-
-    Employee* employees = new Employee[numEmployees];
+    Employee employees[numEmployees];
 
     fstream file;
-    file.open("Details.txt", ios::out | ios::binary);
+    file.open("Details.txt", ios::out);
     if (!file)
     {
         cout << "Error opening file!" << endl;
@@ -47,12 +46,12 @@ int main()
     {
         cout << "Enter details for Employee " << i + 1 << ":" << endl;
         employees[i].get_info();
-        file.write(reinterpret_cast<char*>(&employees[i]), sizeof(Employee));
+        file.write((char *)&employees[i], sizeof(employees[i]));
     }
 
     file.close();
 
-    file.open("Details.txt", ios::in | ios::binary);
+    file.open("Details.txt", ios::in);
     if (!file)
     {
         cout << "Error opening file!" << endl;
@@ -62,14 +61,13 @@ int main()
     cout << "Name \t" << "Occupation \t" << "Age" << endl;
     for (int i = 0; i < numEmployees; i++)
     {
-        file.read(reinterpret_cast<char*>(&employees[i]), sizeof(Employee));
+     file.read((char *)&employees[i], sizeof(employees[i]));
         cout << "Employee " << i + 1 << ": ";
         employees[i].set_info();
     }
 
     file.close();
 
-    delete[] employees;
 
     return 0;
 }

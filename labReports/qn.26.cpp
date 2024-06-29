@@ -28,7 +28,7 @@ int main(){
     int numBooks, i;
     cout << "Enter the number of books" << endl;
     cin >> numBooks;
-    Book* books = new Book[numBooks];
+    Book books[numBooks];
     fstream file;
     file.open("library.txt", ios::out);
     if (!file){
@@ -38,7 +38,7 @@ int main(){
     for (i = 0; i < numBooks; i++){
         cout << "Enter the details of books" << i+1 <<endl;
         books[i].get_info();
-        file.write(reinterpret_cast<char*>(&books[i]), sizeof(Book));
+         file.write((char*)&books[i], sizeof(books[i]));
     }
     file.close();
     file.open("library.txt", ios::in);
@@ -49,7 +49,7 @@ int main(){
     cout << "Name \t" << "Author \t" << "Pages \t" << "Price" << endl;
     for (i = 0; i < numBooks; i++){
         if (books[i].returnPrice() > 300){
-            file.read(reinterpret_cast<char*>(&books[i]), sizeof(Book));
+            file.read((char*)&books[i], sizeof(books[i]));
             cout << "Book " << i+1 << ": ";
             books[i].set_info();
         }

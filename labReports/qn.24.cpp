@@ -1,4 +1,5 @@
-//create a file "welcome.txt" and write "welcome to file handeling in c++ " and read the file content
+//create a file "welcome.txt" and write "welcome to file handeling in c++ " and 
+//read the file content
 
 #include <iostream>
 #include<fstream>
